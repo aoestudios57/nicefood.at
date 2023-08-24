@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
       // Daten in Firestore speichern
       db.collection("orders").add(orderDetails)
         .then(function(docRef) {
-          alert("Bestellung aufgegeben:\n\n" + JSON.stringify(orderDetails, null, 2));
+          alert("Bestellung aufgegeben:\n\n Danke fürs bestellen :) \n Für details rufnummer :067761666158 ");
         })
         .catch(function(error) {
           console.error("Error adding document: ", error);
