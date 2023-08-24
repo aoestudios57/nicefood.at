@@ -22,14 +22,13 @@ document.addEventListener("DOMContentLoaded", function() {
       // Firestore-Referenz
       const db = firebase.firestore();
   
-      // Daten in Firestore speichern
       db.collection("orders").add(orderDetails)
-        .then(function(docRef) {
-          alert("Bestellung aufgegeben:\n\n Danke fürs bestellen :) \n Für details rufnummer :067761666158 ");
-        })
-        .catch(function(error) {
-          console.error("Error adding document: ", error);
-        });
+            .then(function(docRef) {
+                alert("Bestellung aufgegeben:\n\n Danke fürs bestellen :) \n Für Details Rufnummer: 067761666158 " );
+            })
+            .catch(function(error) {
+                console.error("Error adding document: ", error);
+            });
     });
   });
   
