@@ -1,331 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&family=Rock+Salt&display=swap');
-
-:root {
-    --color-white: #fff;
-    --primary-color: #14213D;
-    --accent-color: #FCA311;
-    --color-black: #000;
-    --roboto-font: 'Roboto Slab', serif;
-    --rocksalt-font: 'Rock Salt', cursive;
+@importbody{
+    background-color: black;
 }
 
-* {
-    font-family: var(--rocksalt-font);
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+.container{
+    background-color: grey;
 
-li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-    color: var(--color-black);
-    font-size: 1rem;
-}
-
-a:hover {
-    color: var(--accent-color);
-    font-size: 1.5rem;
-    transition: 0.7s;
-}
-
-/********* NAVIGATION BAR *********/
-
-header {
-    position: relative;
-    padding: 0 2rem;
-    height: 100vh;
-    background-image: url(../images/background-1.png);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 400px;
+        border-radius: 10px;
+        box-shadow: 10px 10px 15px rgb(0 0 0 / 5%);
     
 }
-
-.navbar {
-    width: 100%;
-    height: 100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.text   {
+    color: white;
 }
 
-.navbar .logo a img {
-    margin-top: 30px;
-    width: 200px;
-    height: auto;
-}
-
-.navbar .links {
-    display: flex;
-    gap: 2rem;
-    font-weight: 500;
-}
-
-.navbar .toggle_btn {
-    color: var(--color-black);
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: none;
-}
-
-.navbar .toggle_btn:hover {
-    color: var(--accent-color);
-}
-
-.navbar .socials a #facebook {
-    font-size: 1.5rem;
-    color: rgb(3, 182, 253);
-    margin-left: 0.5rem;
-}
-
-.navbar .socials a #github {
-    font-size: 1.5rem;
-    color: rgb(185, 90, 46);
-    margin-left: 0.5rem;
-}
-
-.navbar .socials a #linkedin {
-    font-size: 1.5rem;
-    color: rgb(43, 102, 190);
-    margin-left: 0.5rem;
-}
-
-.navbar .socials a #twitter {
-    font-size: 1.5rem;
-    color: rgb(21, 139, 218);
-    margin-left: 0.5rem;
-}
-
-.navbar .socials a:hover #facebook,
-.navbar .socials a:hover #linkedin,
-.navbar .socials a:hover #github,
-.navbar .socials a:hover #twitter {
-    color: var(--accent-color);
-    font-size: 2rem;
-    transition: 0.4s;
-}
-
-.dropdown_menu .socials a #facebook {
-    font-size: 1.5rem;
-    color: rgb(15, 64, 83);
-    margin-left: 0.5rem;
-}
-
-.dropdown_menu .socials a #github {
-    font-size: 1.5rem;
-    color: rgb(105, 57, 34);
-    margin-left: 0.5rem;
-}
-
-.dropdown_menu .socials a #linkedin {
-    font-size: 1.5rem;
-    color: rgb(38, 75, 131);
-    margin-left: 0.5rem;
-}
-
-.dropdown_menu .socials a #twitter {
-    font-size: 1.5rem;
-    color: rgb(37, 131, 194);
-    margin-left: 0.5rem;
-}
-
-.dropdown_menu .socials a:hover #facebook,
-.dropdown_menu .socials a:hover #linkedin,
-.dropdown_menu .socials a:hover #github,
-.dropdown_menu .socials a:hover #twitter {
-    color: var(--accent-color);
-    font-size: 2rem;
-    transition: 0.4s;
-}
-
-#tooltip {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgb(0, 0, 0);
-    padding: 0.5rem;
-    border-radius: 5px;
-    font-size: 14px;
-    pointer-events: none;
-    display: none;
-    font-family: var(--roboto-font);
-}
-
-/********* DROPDOWN MENU *********/
-
-.dropdown_menu {
-    position: absolute;
-    right: 2rem;
-    top: 100px;
-    width: 300px;
-    height: 0;
-    background-color: #434343;
-    border-radius: 10px;
-    overflow: hidden;
-    z-index: 10;
-}
-
-.dropdown_menu.open {
-    height: 350px;
-}
-
-.dropdown_menu li {
-    padding: 0.7rem;
-    display: flex;
-    align-items: center;
+.logo{
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
     justify-content: center;
-   
+    margin-left: 90px;
+}
+        
+.studios{
+    color: red;
 }
 
-.dropdown_menu .socials {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 1rem;
+.h2text1{
+    margin-left: 50px;
 }
-
-/********* RESPONSIVENESS DESIGN *********/
-
-@media (max-width: 992px) {
-    /********* TABLET *********/
-    .navbar .links, .navbar .socials {
-        display: none;
-    }
-
-    .navbar .toggle_btn {
-        display: block;
-    }
-}
-
-@media (max-width: 576px) { 
-    /********* PHONE *********/
-    .dropdown_menu {
-        left: 2rem;
-        width: unset;
-    }
-}
-
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-body {
-    background: #F6F9FF;
-    height: 100vh;
-    width: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    color: #434343;
-
-    font-size: 16px;
-}
-
-main.cards {
-    display: flex;
-    padding: 32px;
-    margin-top: 100px;
-}
-
-
-main.cards section.card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background: white;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    max-height: 468px;
-    margin-left: 32px;
-}
-
-main.cards section.card:first-child {
-    margin-left: 0;
-}
-
-main.cards section.card .icon {
-    width: 250px;
-    height: 250px;
-}
-
-main.cards section.card img {
-    width: 100%;
-}
-
-main.cards section.card h3 {
-    font-size: 100%;
-    margin: 16px 0;
-}
-
-main.cards section.card span {
-    font-weight: 300;
-    max-width: 240px;
-    font-size: 80%;
-    margin-bottom: 16px;
-}
-
-main.cards section.card button {
-    padding: 0.5rem 1rem;
-    text-transform: uppercase;
-    border-radius: 32px;
-    border: 0;
-    cursor: pointer;
-    font-size: 80%;
-    font-weight: 500;
-    color: #fff;
-    margin-bottom: 16px 0;
-}
-
-main.cards section.card.contact button {
-    background: linear-gradient(to right, #9F66FF, #DFCBFF);
-}
-main.cards section.card.shop button {
-    background: linear-gradient(to right, #3E8AFF, #BBDEFF);
-}
-main.cards section.card.about button {
-    background: linear-gradient(to right, #FE5F8F, #FFC7D9);
-}
-
-main.cards section.card.contact {
-    box-shadow: 20px 20px 50px -30px #DBC4FF;
-}
-main.cards section.card.shop {
-    box-shadow: 20px 20px 50px -30px #AFD6FF;
-}
-main.cards section.card.about {
-    box-shadow: 20px 20px 50px -30px #FFC1D5;
-}
-
-@media screen and (max-width: 720px) {
-    main.cards {
-        flex-direction: column;
-    }
-
-    main.cards section.card {
-        margin-left: 0;
-        margin-bottom: 32px;
-    }
-
-    main.cards section.card:last-child {
-        margin-bottom: 0;
-    }
-
-    main.cards section.card button {
-        font-size: 70%;
-    }
-
+.h2text2{
+    margin-left: 125px;
 }
