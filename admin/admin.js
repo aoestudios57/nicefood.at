@@ -98,4 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialisiere Anzeige
   displayOrders();
+  setTimeout(function() {
+  location.reload();
+}, 5000);
 });
