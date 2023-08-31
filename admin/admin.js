@@ -9,10 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
     projectId: "nicefood-ebd41",
     storageBucket: "nicefood-ebd41.appspot.com",
     messagingSenderId: "413004406542",
-    appId: "1:413004406542:web:a24497bb31b1f26de9c15f"
+    appId: "1:413004406542:web:a24497bb31b1f26de9c15f",
   };
-    // Füge hier deine Firebase-Konfigurationsdaten ein
-  
 
   firebase.initializeApp(firebaseConfig);
 
@@ -28,14 +26,17 @@ document.addEventListener("DOMContentLoaded", function () {
           const orderData = doc.data();
           const orderElement = document.createElement("div");
           orderElement.classList.add("order");
+
           orderElement.innerHTML = `
             <h3>Bestellung von ${orderData.name}</h3>
-            <p>Produkte: ${getFormattedOrderItems(orderData.items)}</p>
+            <p>Produkte:<br>${getFormattedOrderItemslist(orderData.items)}</p>
             <p>Telefonnummer: ${orderData.phone}</p>
             <p>Lieferadresse: ${orderData.address}</p>
             <p>Bezirk: ${orderData.district}</p>
             <p>Gesamtbetrag: ${orderData.total} Euro</p>
-            <button class="delete-button" data-order-id="${doc.id}">Löschen</button>
+            <button class="delete-button" data-order-id="${
+              doc.id
+            }">Löschen</button>
             <hr>
           `;
           ordersContainer.appendChild(orderElement);
@@ -73,6 +74,11 @@ document.addEventListener("DOMContentLoaded", function () {
       .map((item) => `${item.product} (${item.price} Euro) x ${item.quantity}`)
       .join(", ");
   }
+  function getFormattedOrderItemslist(items) {
+    return items
+      .map((item) => `${item.product} (${item.price} Euro) x ${item.quantity}`)
+      .join("<br>");
+  }
 
   // Button-Eventlistener, um alle Bestellungen zu löschen
   deleteAllButton.addEventListener("click", function () {
@@ -98,7 +104,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialisiere Anzeige
   displayOrders();
-  setTimeout(function() {
-  location.reload();
-}, 5000);
+  function refreshPage() {
+    displayOrders();
+    displayReadyOrders();
+  }
+
+  // Starte regelmäßiges Aktualisieren alle 2 Sekunden
+  setInterval(refreshPage, 10000);
 });
