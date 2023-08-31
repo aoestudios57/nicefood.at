@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const ordersContainer = document.getElementById("orders");
   const deleteAllButton = document.getElementById("deleteAllButton");
-
+  const notificationSound = new Audio("erhalten.mp3");
   const firebaseConfig = {
     apiKey: "AIzaSyAqX15SQCHohB91DKV05JFiMlw423t4HL0",
     authDomain: "nicefood-ebd41.firebaseapp.com",
@@ -102,13 +102,24 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
+  function checkForNewOrders() {
+    db.collection("orders").onSnapshot(function (snapshot) {
+      snapshot.docChanges().forEach(function (change) {
+        if (change.type === "added") {
+          notificationSound.play();
+        }
+      });
+    });
+  }
+
   // Initialisiere Anzeige
   displayOrders();
+  checkForNewOrders();
   function refreshPage() {
     displayOrders();
     displayReadyOrders();
   }
 
   // Starte regelmäßiges Aktualisieren alle 2 Sekunden
-  setInterval(refreshPage, 10000);
+  setInterval(refreshPage, 2000);
 });
