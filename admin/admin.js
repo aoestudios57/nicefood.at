@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
       snapshot.docChanges().forEach(function (change) {
         if (change.type === "added") {
           notificationSound.play({ userGesture: true });
-          notificationSound.play();
+         
         }
       });
     });
