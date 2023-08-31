@@ -106,6 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
     db.collection("orders").onSnapshot(function (snapshot) {
       snapshot.docChanges().forEach(function (change) {
         if (change.type === "added") {
+          notificationSound.play({ userGesture: true });
           notificationSound.play();
         }
       });
